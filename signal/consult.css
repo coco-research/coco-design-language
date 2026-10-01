@@ -106,6 +106,7 @@ a.nav-item[aria-current="page"] .badge { background: var(--blue-ink); color: var
 .kns .kn:nth-child(2) { background: var(--deep); color: var(--blue-ink); }
 .kns .kn:nth-child(3) { background: var(--electric); color: var(--blue-ink); }
 .kns .kn:nth-child(4) { background: var(--cyan); color: var(--amber-ink); }
+/* tone colours would fail contrast on the ramp, so they reset here: a gap or stale number MUST carry its .mark (shape + word) */
 .kns .kn :is(.kn-num, .kn-label, .kn-denom, .tone-gap, .tone-stale, .mark) { color: inherit; }
 .kns .kn .kn-denom { opacity: 0.86; }
 .kns .kn .mark { font-weight: 650; }
