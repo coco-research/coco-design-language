@@ -1,0 +1,23 @@
+# Minimal CI for coco-research/coco-design-language (public, CSS-only).
+# GitHub-hosted runner on purpose: never a self-hosted Mac runner on a public repo (fork PRs would run on the Mac).
+# Copy to .github/workflows/ci.yml. Required check name once green: `check`.
+name: ci
+on:
+  push: { branches: [main] }
+  pull_request: { branches: [main] }
+permissions: { contents: read }
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: CSS parses (syntax only, no style opinions)
+        run: |
+          echo '{"rules":{}}' > "$RUNNER_TEMP/stylelint.json"
+          npx --yes -p stylelint@16 stylelint "signal/**/*.css" --config "$RUNNER_TEMP/stylelint.json"
+      - name: Links resolve
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --no-progress './**/*.md' './**/*.html' 'signal/**/*.css'
+          fail: true
