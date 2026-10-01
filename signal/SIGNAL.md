@@ -62,7 +62,7 @@ Consult proves rule 2: it removes the status colours and still reads, because ev
    copy `fonts/` and load `fonts.css` first (it holds the two @font-face rules; licences are in `fonts/`).
 2. Import in this order: (`fonts.css` for plain HTML) → `layout.css` → `signal.css` → (`color.css` for Color and Consult) → (`consult.css` for Consult).
 3. Set `data-theme="light|dark"` on `<html>`; follow `prefers-color-scheme` on first load, and let a toggle persist the choice.
-4. The class names (`.rail`, `.page-head`, `.kns`/`.kn`, `.rows`/`.row`, `.pt`, `.mark-*`, `.epic`, `.bar`, `.toast`) come from
-   the reference build: the Status Zero bake-off app in `scratch/bakeoff-status0/c11-*`, `c12-*` and `c13-*`
-   (Lite, Color, Consult). Copy its `ui.jsx` parts (Mark, Pair, KeyNumber, Toast) rather than re-inventing them.
+4. Build markup from the parts the CSS styles (`.rail`, `.page-head`, `.kns`/`.kn`, `.rows`/`.row`, `.pt`, `.mark-*`, `.epic`,
+   `.bar`, `.toast`): a state is a `.mark` (shape + word), a plan-versus-truth comparison is a `.pt` row, a key number is a
+   `.kn` tile. The edition screenshots in the coco-design-language README show these parts in use.
 
