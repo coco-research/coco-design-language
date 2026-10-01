@@ -24,6 +24,31 @@ Signal is a CSS design system for application screens.
 | Color | Overviews, dashboards, and anything people present |
 | Consult | Polished business material: white paper, a navy rail, and one blue ramp |
 
+## See the editions
+
+The same screen in each edition: the read-only leadership view of a demo app, with fixture data and fictional people. Each image follows your light or dark setting.
+
+### Lite
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/editions/lite-dark.png">
+  <img src="docs/editions/lite-light.png" width="100%" alt="Lite edition: a black rail, warm paper, four key numbers in ruled columns with the number coloured by its meaning, and epics with plan-against-truth bars.">
+</picture>
+
+### Color
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/editions/color-dark.png">
+  <img src="docs/editions/color-light.png" width="100%" alt="Color edition: white paper, a light rail, and four key-number tiles filled blue, green, amber and red because each number carries that meaning.">
+</picture>
+
+### Consult
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="docs/editions/consult-dark.png">
+  <img src="docs/editions/consult-light.png" width="100%" alt="Consult edition: a navy rail and four key-number tiles ranked navy to cyan; states show only as shape and word, such as a diamond for needs a link and a triangle for stale.">
+</picture>
+
 ## Quick start
 
 Link the files in `signal/` in this order.
@@ -57,7 +82,7 @@ Consult does not use green or amber for state. On `:root` in `consult.css`, stal
 
 AA. `signal.css` splits blue into `--blue` (fill) and `--blue-text` (text) in both themes so those pairs stay AA. Green, amber, and red use the same split: `--green` and `--green-fill`, `--amber` and `--amber-fill`, `--red` and `--red-fill`.
 
-Focus. `:focus` sets `outline: none`. `:focus-visible` sets `outline: 2px solid transparent` and `box-shadow: var(--focus)`. In `signal.css`, `--focus` is `0 0 0 2px var(--bg), 0 0 0 4px var(--blue)`. Consult sets `--focus` to `0 0 0 2px var(--bg), 0 0 0 4px var(--electric)`. `.page-head h1:focus` and `.page-head h1:focus-visible` set `box-shadow: none`. `.person:focus-visible` uses `box-shadow: inset 0 0 0 2px var(--accent)`. `.person[aria-current="true"]:focus-visible` uses `--blue` in `signal.css` and `--electric` in `consult.css`. `.skip:focus` applies `var(--focus)`.
+Focus. `:focus` sets `outline: none`. `:focus-visible` sets `outline: 2px solid transparent` and `box-shadow: var(--focus)`. In `signal.css`, `--focus` is `0 0 0 2px var(--bg), 0 0 0 4px var(--blue)`. Consult sets `--focus` to `0 0 0 2px var(--bg), 0 0 0 4px var(--electric)`. `.page-head h1:focus:not(:focus-visible)` sets `box-shadow: none`, so a page title focused by keyboard keeps its ring. `.person:focus-visible` uses `box-shadow: inset 0 0 0 2px var(--accent)`. `.person[aria-current="true"]:focus-visible` uses `--blue` in `signal.css` and `--electric` in `consult.css`. `.skip:focus` applies `var(--focus)`.
 
 Targets. `layout.css` gives `.row` and `.toast` `min-height: 44px` at every width. Above 799px, `.btn` stays `min-height: 32px` and `.icon-btn` stays 34px by 34px. Inside `@media (max-width: 799px)` in `signal.css`, `.btn`, `.row-actions .btn`, `.nav-item`, `.nav-off .nav-item`, `.field`, and `label.check` become `min-height: 44px`, and `.icon-btn` becomes 44px by 44px.
 
