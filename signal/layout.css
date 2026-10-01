@@ -45,7 +45,7 @@ a.nav-item[aria-current="page"] .badge { background: var(--bg); }
   padding-bottom: 16px; margin-bottom: 24px; border-bottom: 1px solid var(--line);
 }
 .page-head h1 { font-size: 20px; line-height: 28px; font-weight: 600; letter-spacing: -0.01em; }
-.page-head h1:focus, .page-head h1:focus-visible { outline: none; box-shadow: none; }
+.page-head h1:focus:not(:focus-visible) { outline: none; box-shadow: none; }
 .page-tools { display: flex; align-items: center; gap: 16px; }
 .who { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
 .page-tools .icon-btn:last-child { margin-left: auto; }

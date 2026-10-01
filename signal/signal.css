@@ -150,7 +150,7 @@ a.nav-item[aria-current="page"] .badge { background: var(--blue-ink); color: var
 .who { gap: 8px; }
 .who-name { font-weight: 700; }
 .who-role { color: var(--ink-2); }
-.lede { font-size: 16px; line-height: 24px; font-weight: 450; max-width: 60ch; color: var(--ink); }
+.lede { font-size: 16px; line-height: 24px; font-weight: 450; max-width: 60ch; color: var(--ink); text-wrap: pretty; }
 
 /* ---------- controls ---------- */
 .btn, .icon-btn {
@@ -171,6 +171,10 @@ label.check input { width: 18px; height: 18px; margin: 0; accent-color: var(--bl
 .nav-label { margin: 16px 0 4px; padding: 0 20px; font-family: var(--mono); font-size: 11px; line-height: 14px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--rail-ink-3); }
 .skip { position: absolute; left: 8px; top: 8px; z-index: 100; padding: 8px 12px; border-radius: var(--r-ctl); background: var(--raised); color: var(--ink); transform: translateY(-200%); }
 .skip:focus { transform: none; box-shadow: var(--focus); }
+/* links: blue in prose; in rows, lists and tiles they keep the text colour with a quiet underline that darkens on hover */
+:where(.page, .page-head) a { color: var(--blue-text); text-decoration-thickness: 1px; text-underline-offset: 2px; }
+:where(.row, .mini, .kn) a { color: inherit; text-decoration-color: color-mix(in srgb, currentColor 55%, transparent); }
+:where(.row, .mini, .kn) a:hover { text-decoration-color: currentColor; }
 
 /* ---------- sections, Plan <-> Truth rows ---------- */
 .section { margin-top: 28px; }

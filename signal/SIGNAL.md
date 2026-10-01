@@ -54,8 +54,8 @@ Consult proves rule 2: it removes the status colours and still reads, because ev
 
 ## Mapping (approved)
 - **Color:** the standalone Monday note, leadership views, Coco Connect dashboards, client-facing pages.
-- **Lite:** Coco Teams NG, Hermes, KeyDeck, PortDeck, Coco Voice settings, internal consoles and bus and HQ tools.
-- **Consult:** Status Zero (Boss, 2026-09-30), anything for work or clients, such as decks turned into apps, client dashboards and work reporting views. No firm or client branding lives in the system itself.
+- **Lite:** Hermes, KeyDeck, PortDeck, Coco Voice settings, internal consoles and bus and HQ tools.
+- **Consult:** Status Zero (Boss, 2026-09-30), Coco Teams NG (from its restyle milestone after 2.0.0; Boss, 2026-10-01), anything for work or clients, such as decks turned into apps, client dashboards and work reporting views. No firm or client branding lives in the system itself.
 
 ## How to use it in an app
 1. Fonts: npm apps `npm i @fontsource-variable/schibsted-grotesk @fontsource-variable/geist-mono`; plain HTML apps
