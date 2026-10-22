@@ -35,7 +35,7 @@
 }
 
 /* rail: light surface, rounded active pill */
-.nav-item { margin: 0 10px; padding: 0 12px; border-radius: var(--r-ctl); }
+.nav-item { margin: 0 10px; padding: 0 10px; border-radius: var(--r-ctl); }
 .badge { background: var(--blue-soft); color: var(--blue-text); }
 a.nav-item[aria-current="page"] .badge { background: var(--blue-ink); color: var(--blue); }
 .topbar .icon-btn, .rail .icon-btn { border-color: var(--rail-ink-3); }
@@ -53,9 +53,9 @@ a.nav-item[aria-current="page"] .badge { background: var(--blue-ink); color: var
 .kn + .kn { border-left: 0; padding-left: 16px; }
 .kns .kn:first-child .kn-num { color: inherit; }
 .kn-blue { background: var(--blue); color: var(--blue-ink); }
-.kn-green { background: var(--green-fill); color: #ffffff; }
+.kn-green { background: var(--green-fill); color: var(--blue-ink); }
 .kn-amber { background: var(--amber-fill); color: var(--amber-ink); }
-.kn-red { background: var(--red-fill); color: #ffffff; }
+.kn-red { background: var(--red-fill); color: var(--blue-ink); }
 .kn[class*="kn-"] :is(.kn-num, .kn-label, .kn-denom, .tone-gap, .tone-stale, .mark) { color: inherit; }
 .kn[class*="kn-"] .kn-denom { opacity: 0.86; }
 

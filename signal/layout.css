@@ -123,6 +123,7 @@ a.nav-item[aria-current="page"] .badge { background: var(--bg); }
 .row-gap { background: var(--gap-soft); }
 .row-stale { background: var(--stale-soft); }
 .row-x { display: grid; grid-template-columns: minmax(0, 1fr) auto; align-items: center; gap: 16px; }
+.row-x:has(> .face) { grid-template-columns: auto minmax(0, 1fr) auto; align-items: start; }
 .row-actions { display: flex; align-items: center; gap: 8px; }
 .resolved-note { font-size: 12px; line-height: 16px; font-weight: 500; color: var(--ink-2); }
 
@@ -201,6 +202,55 @@ a.nav-item[aria-current="page"] .badge { background: var(--bg); }
 .toast-undo:hover { background: var(--accent-soft); }
 @keyframes toast-in { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 
+/* ---------- parts ---------- */
+/* .rail already sets overflow-y: auto. The phone sheet must scroll too. */
+.rail-sheet { overflow-y: auto; }
+/* face: member picture. The app fills an img; a span keeps the frame. */
+.face { display: inline-block; flex: none; object-fit: cover; }
+.face-24 { width: 24px; height: 24px; }
+.face-32 { width: 32px; height: 32px; }
+.face-40 { width: 40px; height: 40px; }
+.face-88 { width: 88px; height: 88px; }
+/* rail member: current member, one row. Name shrinks; the button sits at the end. */
+.rail-member { display: flex; align-items: center; gap: 10px; margin: 8px 10px; padding: 8px; }
+.rail-member-name { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.rail-member .btn { margin-left: auto; flex: none; }
+/* count: small tally. Hidden at 0 so an empty chip never shows. */
+.count { display: inline-flex; align-items: center; justify-content: center; min-width: 18px; height: 18px; padding: 0 5px; }
+.count:empty, .count[hidden] { display: none; }
+/* row description: mission text inside a row. .l2 stays the 12px caption. */
+.row-desc { margin: 4px 0 0; overflow-wrap: anywhere; }
+/* thread: chat column, 20px between turns */
+.thread { display: flex; flex-direction: column; gap: 20px; max-width: 72ch; }
+.turn-who { display: flex; align-items: center; gap: 8px; margin-bottom: 6px; }
+.turn-you { padding: 12px 16px; }
+/* turn body: put back the lists the reset removes. Do not counter-reset ol (start must work). */
+.turn-body :where(p, ul, ol, pre, table) { margin: 0; }
+.turn-body > * + * { margin-top: 10px; }
+.turn-body ol, .turn-body ul { padding-left: 1.4em; }
+.turn-body li + li { margin-top: 4px; }
+.turn-body pre { padding: 12px; overflow-x: auto; }
+.turn-body table { border-collapse: collapse; }
+.turn-body th, .turn-body td { padding: 6px 8px; text-align: left; }
+/* composer: one field, bar under it, sticky only with .is-sticky */
+.composer textarea.field { display: block; width: 100%; min-height: 44px; max-height: 192px; max-height: 12lh; resize: none; }
+.composer-bar { display: flex; align-items: center; gap: 8px; padding: 8px; }
+.composer-bar .meta { margin-right: auto; }
+.composer.is-sticky { position: sticky; bottom: 0; }
+/* technical details: disclosure. Body text wraps; the summary stays a control. */
+details.tech { margin-top: 8px; }
+details.tech summary { display: list-item; min-height: 32px; padding: 6px 0; cursor: pointer; }
+details.tech > :not(summary) { white-space: pre-wrap; overflow-wrap: anywhere; }
+/* split: list plus a 360px detail; one column below 1100px */
+.split { display: grid; grid-template-columns: minmax(0, 1fr) 360px; gap: 24px; align-items: start; }
+@media (max-width: 1099px) {
+  .split { grid-template-columns: 1fr; }
+}
+/* gate: centred invite column */
+.gate { max-width: 440px; margin: 120px auto 0; padding: 0 16px; }
+/* dialog: sheet width. Paint lives in signal.css. */
+.dialog { max-width: 560px; width: calc(100% - 32px); padding: 20px; }
+
 /* ---------- phones: rail becomes top bar + slide-over ---------- */
 @media (max-width: 799px) {
   .app { display: block; }
@@ -209,7 +259,7 @@ a.nav-item[aria-current="page"] .badge { background: var(--bg); }
     padding: 0 16px; background: var(--bg); border-bottom: 1px solid var(--line);
   }
   .rail-sheet {
-    position: fixed; z-index: 40; top: 0; left: 0; bottom: 0; width: min(280px, 86vw); height: auto;
+    position: fixed; z-index: 40; top: 0; left: 0; bottom: 0; width: min(280px, 86vw); height: auto; overflow-y: auto;
     transform: translateX(-100%); visibility: hidden; transition: transform var(--t-toast), visibility 0s linear var(--t-toast);
     border-right: 1px solid var(--float-border); box-shadow: none;
   }
@@ -228,7 +278,10 @@ a.nav-item[aria-current="page"] .badge { background: var(--bg); }
   .conn-ok::after { left: -3.5px; top: 50%; margin: -3px 0 0; }
   .conn-gap { border-top: 0; border-left: 1px dashed var(--gap); }
   .rows { border-top: 1px solid var(--line); }
+  .pt-head + .rows { border-top: 1px solid var(--line); }
   .row-x { grid-template-columns: 1fr; gap: 12px; }
+  .row-x:has(> .face) { grid-template-columns: auto minmax(0, 1fr); }
+  .row-x:has(> .face) > .row-actions { grid-column: 2; }
   .row-actions .btn { min-height: 40px; }
 
   .person { grid-template-columns: 1fr; gap: 4px; min-height: 64px; }
@@ -242,4 +295,5 @@ a.nav-item[aria-current="page"] .badge { background: var(--bg); }
   .epic-cols { grid-template-columns: 1fr; gap: 16px; }
   .toast-host { bottom: 16px; }
   .toast { white-space: normal; max-width: calc(100vw - 32px); }
+  .gate { margin-top: 48px; }
 }
