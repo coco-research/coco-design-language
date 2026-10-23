@@ -1,9 +1,9 @@
 # Signal: the Coco design system
 
-Status: **APPROVED by Boss 2026-09-30: all three editions (Lite, Color, Consult).**
+Status: **Approved: all three editions (Lite, Color, Consult).**
 
-Born from the Status Zero bake-off: 13 designs over 5 rounds, and Boss kept only the Signal family.
-Boss names the editions **1. Lite · 2. Color · 3. Consult**; use these names everywhere.
+Born from a design bake-off: 13 designs over 5 rounds, and only the Signal family was kept.
+The editions are named **1. Lite · 2. Color · 3. Consult**; use these names everywhere.
 Files: `layout.css` (structure), `signal.css` (core: tokens, type, components; this alone is Lite), and
 `color.css` (the Color edition layer), and `consult.css` (the Consult layer, loaded after color.css).
 
@@ -12,7 +12,9 @@ Files: `layout.css` (structure), `signal.css` (core: tokens, type, components; t
 
 ## Five principles
 1. **Colour means one thing, everywhere.** Blue = you are here, act, or in progress. Green = moving or done.
-   Amber = needs a link (a gap). Red = stale. Nothing else gets colour. No gradients, glass, glows or emoji.
+   Amber = a gap (a missing link, or blocked). Red = stale or failed (broken; must never be missed). Nothing else gets colour.
+   No gradients, glass, glows or emoji. A page at rest has no colour: on overview pages, in progress and done may stay ink,
+   because only what is wrong (or what the reader must act on) should speak.
 2. **Size, weight and rules carry hierarchy.** It uses heavy rules (2px under page titles, 1.5px under sections,
    1px inside), a grotesk for words and mono for machine facts (keys, counts, dates).
 3. **Numbers first.** Tabular figures, units set small ("12 days"), and every count with its denominator ("1 of 2").
@@ -46,16 +48,26 @@ Consult proves rule 2: it removes the status colours and still reads, because ev
 2. Every state needs its word and its shape (● ◐ ○ ◇ ▲). Remove the colour and the screen must still read.
 3. Build from the parts that exist: Plan ⟷ Truth row, mark, key number or tile, coverage bar, rule-headed
    section, toast, field, check, pressed filter button, rail label, skip link. A new component needs a reason in its PR.
+   Face: a square member picture at 24, 32, 40 or 88.
+   Rail member: face, name, presence and a switch button in the rail.
+   Count: a small mono tally on the paper, hidden when empty.
+   Row description: the 14/21 line under a row title.
+   Thread and turn: the chat column, the who-line and the you panel.
+   Composer: the message field with its bar.
+   Technical details: the mono disclosure for developer text.
+   Split: list plus a 360px detail, one column under 1100px.
+   Gate: the centred invite column.
+   Dialog: the raised panel, with the scrim behind it.
 4. Pick the edition per app; never mix rails or corner styles inside one app. Inside an app, the app's edition wins
-   over this mapping (Status Zero's Monday note page is Consult).
+   over this mapping.
 5. Both themes are checked before any UI PR merges (light, dark, 390px phone).
 6. Overview screens open with an action title: one sentence stating the takeaway with its numbers
    ("3 of 4 epics are in progress, but only 2 of 7 planned stories are moving..."), not a description of the page.
 
-## Mapping (approved)
-- **Color:** the standalone Monday note, leadership views, Coco Connect dashboards, client-facing pages.
-- **Lite:** Hermes, KeyDeck, PortDeck, Coco Voice settings, internal consoles and bus and HQ tools.
-- **Consult:** Status Zero (Boss, 2026-09-30), Coco Teams NG (from its restyle milestone after 2.0.0; Boss, 2026-10-01), anything for work or clients, such as decks turned into apps, client dashboards and work reporting views. No firm or client branding lives in the system itself.
+## Which edition
+- **Color:** standalone reports, leadership views, dashboards and client-facing pages.
+- **Lite:** settings screens, developer tools and internal consoles.
+- **Consult:** anything for work or clients, such as decks turned into apps, client dashboards and work reporting views. No firm or client branding lives in the system itself.
 
 ## How to use it in an app
 1. Fonts: npm apps `npm i @fontsource-variable/schibsted-grotesk @fontsource-variable/geist-mono`; plain HTML apps
