@@ -94,4 +94,8 @@ Words use Schibsted Grotesk. Machine facts use Geist Mono. `fonts.css` registers
 
 ## License
 
-CSS and these docs are MIT. See `LICENSE`. The font files stay under the SIL Open Font License, Version 1.1. The MIT grant does not replace the font licence.
+CSS and these docs are Apache-2.0. See `LICENSE`.
+
+Relicensed from MIT to Apache-2.0 from this commit. Earlier releases remain under MIT.
+
+The prior MIT text is kept in `LICENSE-MIT-PRIOR`. The font files stay under the SIL Open Font License, Version 1.1. The project licence does not replace the font licence.
